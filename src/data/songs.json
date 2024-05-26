@@ -1,0 +1,63 @@
+[
+  {
+    "id": "f6a2d1e4-75ec-4f0f-8ab1-2f7c3f7b7f4b",
+    "title": "Master of Puppets",
+    "artist": "Metallica",
+    "year": 1988
+  },
+  {
+    "id": "31f6e2e6-7f8b-46fe-8e45-2d5d2f1ddc4b",
+    "title": "Cemetery Gates",
+    "artist": "Pantera",
+    "year": 1990
+  },
+  {
+    "id": "8d2d24f5-2bfa-4d1e-8f33-9f1f5c6d63ba",
+    "title": "Enter Sandman",
+    "artist": "Metallica",
+    "year": 1991
+  },
+  {
+    "id": "e4abf2e2-0f4c-45f3-8f7e-2a2d1d34f4b7",
+    "title": "Sad But True",
+    "artist": "Testament",
+    "year": 1994
+  },
+  {
+    "id": "aeebcb2b-6d2e-4f9e-8d4d-5d63b2c3e4b",
+    "title": "Symphony of Destruction",
+    "artist": "Slayer",
+    "year": 1988
+  },
+  {
+    "id": "1f4d2e75-2e9f-4d6e-8f22-0f6f5d35d3e5",
+    "title": "Angel of Death",
+    "artist": "Slayer",
+    "year": 1986
+  },
+  {
+    "id": "c2d4f2d2-2b4b-4f23-8f22-2d2f5d4e2e75",
+    "title": "For Whom the Bell Tolls",
+    "artist": "Metallica",
+    "year": 1984
+  },
+  {
+    "id": "c9f2e2d2-2b4b-4f23-8f22-2d2f5d4e2e75",
+    "title": "The Number of the Beast",
+    "artist": "Iron Maiden",
+    "year": 1982
+  },
+  {
+    "id": "1f4d2e75-2e9f-4d6e-8f22-0f6f5d35d3e5",
+    "title": "Back in Black",
+    "artist": "AC/DC",
+    "year": 1980
+  },
+  {
+    "id": "8d2d24f5-2bfa-4d1e-8f33-9f1f5c6d63ba",
+    "title": "Holy Diver",
+    "artist": "Dio",
+    "year": 1983
+  }
+]
+

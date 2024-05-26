@@ -11,6 +11,7 @@
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "firebase": "^10.12.1",
     "vue": "^3.4.27",
     "vuetify": "^3.6.7"
@@ -22,6 +23,7 @@
     "@vitejs/plugin-vue-jsx": "^3.1.0",
     "@vue/tsconfig": "^0.5.1",
     "npm-run-all2": "^6.2.0",
+    "sass": "^1.77.2",
     "typescript": "~5.4.5",
     "vite": "^5.2.11",
     "vite-plugin-vue-devtools": "^7.2.1",

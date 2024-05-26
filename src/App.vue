@@ -1,20 +1,27 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { collection, query, where, getDocs } from "firebase/firestore";
-import { db } from "./firebase/config";
+import PlayerList from "./components/PlayerList.vue";
+import Player from "./components/Player.vue";
+import { useSongs } from "./hooks/useSongs";
 
-onMounted(async () => {
-  const q = query(collection(db, "songs"));
-
-  const querySnapshot = await getDocs(q);
-  querySnapshot.forEach((doc) => {
-    console.log(doc.id, " => ", doc.data());
-  });
-});
+const { addSongsToFavorite } = useSongs();
 </script>
 
 <template>
-  <main></main>
+  <main>
+    <div class="container">
+      <div class="controls">
+        <Player
+          @add-to-favourites="(id: string) => addSongsToFavorite(id)"
+          class="player"
+        />
+        <PlayerList class="player-list" />
+      </div>
+    </div>
+  </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.controls {
+  width: 100%;
+}
+</style>
