@@ -13,9 +13,11 @@ interface SongType {
 
 export const usePlayer = () => {
     const playerSongs = ref<SongsType>(songs);
+    const currentSong = ref<SongType | null>(null);
 
 
     return {
-        playerSongs
+        playerSongs,
+        currentSong
     }
 }

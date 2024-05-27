@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { collection, query, onSnapshot, addDoc } from "firebase/firestore";
+import { collection, query, onSnapshot, addDoc, doc, getDoc, deleteDoc } from "firebase/firestore";
 import { db } from "../firebase/config";
 
 import favouriteSongs from "../data/songs.json";
@@ -15,6 +15,11 @@ type Song = {
 
 export const useSongs = () => {
   const songs = ref<SongsData>([]);
+  const uiState = ref<{ isLoading: boolean;  isAdded: boolean;  isAdding: boolean }>({
+    isLoading: true,
+    isAdded: false,
+    isAdding: false,
+  })
 
   const getSongs = async () => {
     const q = query(collection(db, "songs"));
@@ -28,24 +33,43 @@ export const useSongs = () => {
         } as Song);
       });
       songs.value = tempSongs;
+      uiState.value.isLoading = false;
     });
 
-    return { unsubscribe, };
+    return { unsubscribe};
   };
 
-  const addSongsToFavorite = async (songId: string) => {
-    try {
+  const deleteSong = async (id: string) => {
+   
+      await deleteDoc(doc(db, "songs", id));
 
-        const favSong = favouriteSongs.find((song) => song.id === songId);
+    
+
+    
+  }
+
+  const addSongsToFavorite = async (songId: string) => {
+    uiState.value.isAdding = true
+    try {
       
-        if(favSong){
-            console.log(favSong);
-            await addDoc(collection(db, "songs"), {
-                title: favSong?.title,
-                artist: favSong?.artist,
-                year: favSong?.year
-            });
-        }
+      const favSong = favouriteSongs.find((song) => song.id === songId);
+      if(favSong){
+             
+        await addDoc(collection(db, "songs"), {
+          title: favSong?.title,
+          artist: favSong?.artist,
+          year: favSong?.year
+        });
+
+        uiState.value.isAdded = true
+        const timer = setTimeout(() => {
+          uiState.value.isAdded = false
+          clearTimeout(timer)
+        }, 3000)
+      }
+   
+
+      
             
     
     
@@ -53,11 +77,16 @@ export const useSongs = () => {
     catch(err) {
         console.log(err);
     }
+    finally {
+      uiState.value.isAdding = false
+    }
   };
 
   return {
     getSongs,
+    deleteSong,
     addSongsToFavorite,
+    uiState,
     songs,
   };
 };
