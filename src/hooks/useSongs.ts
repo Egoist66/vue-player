@@ -65,7 +65,7 @@ export const useSongs = () => {
         const timer = setTimeout(() => {
           uiState.value.isAdded = false
           clearTimeout(timer)
-        }, 3000)
+        }, 2000)
       }
    
 
