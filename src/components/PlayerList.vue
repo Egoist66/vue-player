@@ -9,9 +9,14 @@ const emits = defineEmits<{
 onMounted(async () => {
   await getSongs();
 });
+
+const name = "Farid";
 </script>
 
 <template>
+  <div>
+    <slot v-bind="{ songs }"></slot>
+  </div>
   <v-card height="250px" width="100%" class="mx-auto pa-2 overflow-y-auto">
     <v-list v-if="!uiState.isLoading">
       <v-list-subheader>The favourite songs</v-list-subheader>

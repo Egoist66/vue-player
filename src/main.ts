@@ -7,6 +7,7 @@ import App from './App.vue'
 import 'vuetify/styles'
 import '@mdi/font/css/materialdesignicons.css'
 import './assets/global.scss'
+import {tooltip} from "@/directives/tooltip";
 
 
 const vuetify = createVuetify({
@@ -15,5 +16,6 @@ const vuetify = createVuetify({
 })
 
 createApp(App)
+.directive('tooltip', tooltip)
 .use(vuetify)
 .mount('#app')

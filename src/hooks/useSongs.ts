@@ -1,6 +1,6 @@
-import { ref } from "vue";
-import { collection, query, onSnapshot, addDoc, doc, getDoc, deleteDoc } from "firebase/firestore";
-import { db } from "../firebase/config";
+import {type Ref, ref} from "vue";
+import {addDoc, collection, deleteDoc, doc, onSnapshot, query} from "firebase/firestore";
+import {db} from "../firebase/config";
 
 import favouriteSongs from "../data/songs.json";
 
@@ -14,7 +14,7 @@ type Song = {
 };
 
 export const useSongs = () => {
-  const songs = ref<SongsData>([]);
+  const songs: Ref<SongsData> = ref([]);
   const uiState = ref<{ isLoading: boolean;  isAdded: boolean;  isAdding: boolean }>({
     isLoading: true,
     isAdded: false,
